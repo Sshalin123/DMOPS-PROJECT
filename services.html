@@ -1,98 +1,274 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>Services - My Web App</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DevOps Project - Services</title>
   <style>
-    body {
-      font-family: Arial, sans-serif;
+    * {
       margin: 0;
-      padding: 20px;
-      background-color: #f4f4f4;
+      padding: 0;
+      box-sizing: border-box;
     }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+      background-color: #000;
+      color: #fff;
+      line-height: 1.6;
+    }
+
+    /* Navigation */
     nav {
-      background-color: #333;
-      padding: 10px;
-      margin-bottom: 20px;
+      background-color: #000;
+      border-bottom: 1px solid #222;
+      padding: 1.5rem 0;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
     }
-    nav a {
-      color: white;
+
+    .nav-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: #fff;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+      list-style: none;
+    }
+
+    .nav-links a {
+      color: #aaa;
       text-decoration: none;
-      padding: 10px 15px;
-      margin-right: 10px;
+      font-weight: 500;
+      transition: color 0.3s ease;
+      position: relative;
     }
-    nav a:hover {
-      background-color: #555;
+
+    .nav-links a:hover {
+      color: #fff;
     }
+
+    .nav-links a.active {
+      color: #fff;
+    }
+
+    .nav-links a.active::after {
+      content: '';
+      position: absolute;
+      bottom: -8px;
+      left: 0;
+      width: 100%;
+      height: 2px;
+      background: #fff;
+    }
+
+    /* Content */
     .container {
-      background-color: white;
-      padding: 20px;
-      border-radius: 5px;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 4rem 2rem;
     }
+
+    .page-title {
+      font-size: 3rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+      letter-spacing: -0.02em;
+      text-align: center;
+    }
+
+    .page-subtitle {
+      font-size: 1.25rem;
+      color: #aaa;
+      margin-bottom: 4rem;
+      text-align: center;
+    }
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2.5rem;
+      margin-top: 3rem;
+    }
+
     .service-card {
-      border: 1px solid #ddd;
-      padding: 15px;
-      margin: 15px 0;
-      border-radius: 5px;
-      background-color: #f9f9f9;
+      background-color: #0a0a0a;
+      border: 1px solid #222;
+      padding: 2.5rem;
+      border-radius: 12px;
+      transition: all 0.3s ease;
     }
+
+    .service-card:hover {
+      border-color: #fff;
+      transform: translateY(-5px);
+    }
+
+    .service-icon {
+      font-size: 3rem;
+      margin-bottom: 1.5rem;
+      display: block;
+    }
+
     .service-card h3 {
-      color: #333;
-      margin-top: 0;
+      font-size: 1.5rem;
+      margin-bottom: 1rem;
+      font-weight: 600;
+    }
+
+    .service-card p {
+      color: #aaa;
+      margin-bottom: 1.5rem;
+      line-height: 1.7;
+    }
+
+    .service-card ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    .service-card li {
+      color: #ccc;
+      padding: 0.5rem 0;
+      padding-left: 1.5rem;
+      position: relative;
+    }
+
+    .service-card li::before {
+      content: '→';
+      position: absolute;
+      left: 0;
+      color: #fff;
+    }
+
+    /* Footer */
+    footer {
+      max-width: 1200px;
+      margin: 6rem auto 2rem;
+      padding: 2rem;
+      text-align: center;
+      color: #666;
+      border-top: 1px solid #222;
+    }
+
+    @media (max-width: 768px) {
+      .page-title {
+        font-size: 2rem;
+      }
+
+      .services-grid {
+        grid-template-columns: 1fr;
+      }
     }
   </style>
 </head>
 <body>
   <nav>
-    <a href="index.html">Home</a>
-    <a href="about.html">About</a>
-    <a href="services.html">Services</a>
-    <a href="contact.html">Contact</a>
+    <div class="nav-container">
+      <div class="logo">DevOps Project</div>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="services.html" class="active">Services</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </div>
   </nav>
 
   <div class="container">
-    <h1>Our Services</h1>
-    <p>Explore the DevOps services and practices we demonstrate:</p>
+    <h1 class="page-title">DevOps Services</h1>
+    <p class="page-subtitle">Comprehensive DevOps practices and solutions we demonstrate</p>
 
-    <div class="service-card">
-      <h3>Version Control Management</h3>
-      <p>Implementation of Git workflows for efficient code management and collaboration.</p>
-      <ul>
-        <li>Branch management strategies</li>
-        <li>Commit best practices</li>
-        <li>Merge conflict resolution</li>
-      </ul>
-    </div>
+    <div class="services-grid">
+      <div class="service-card">
+        <span class="service-icon">🔧</span>
+        <h3>Version Control Management</h3>
+        <p>Efficient code management and collaboration through modern Git workflows.</p>
+        <ul>
+          <li>Branch management strategies</li>
+          <li>Commit best practices</li>
+          <li>Merge conflict resolution</li>
+          <li>Code review workflows</li>
+        </ul>
+      </div>
 
-    <div class="service-card">
-      <h3>Continuous Integration/Continuous Deployment</h3>
-      <p>Automated build, test, and deployment pipelines for rapid delivery.</p>
-      <ul>
-        <li>Automated testing</li>
-        <li>Build automation</li>
-        <li>Deployment automation</li>
-      </ul>
-    </div>
+      <div class="service-card">
+        <span class="service-icon">🚀</span>
+        <h3>CI/CD Pipeline</h3>
+        <p>Automated build, test, and deployment pipelines for rapid delivery.</p>
+        <ul>
+          <li>Automated testing</li>
+          <li>Build automation</li>
+          <li>Deployment automation</li>
+          <li>Rollback strategies</li>
+        </ul>
+      </div>
 
-    <div class="service-card">
-      <h3>Infrastructure as Code</h3>
-      <p>Treating infrastructure configuration as version-controlled code.</p>
-      <ul>
-        <li>Terraform configurations</li>
-        <li>AWS CloudFormation templates</li>
-        <li>Configuration management</li>
-      </ul>
-    </div>
+      <div class="service-card">
+        <span class="service-icon">🏗️</span>
+        <h3>Infrastructure as Code</h3>
+        <p>Infrastructure configuration as version-controlled code.</p>
+        <ul>
+          <li>Terraform configurations</li>
+          <li>CloudFormation templates</li>
+          <li>Configuration management</li>
+          <li>Environment consistency</li>
+        </ul>
+      </div>
 
-    <div class="service-card">
-      <h3>Monitoring & Logging</h3>
-      <p>Comprehensive monitoring solutions for application performance and reliability.</p>
-      <ul>
-        <li>Performance metrics tracking</li>
-        <li>Log aggregation and analysis</li>
-        <li>Alert configuration</li>
-      </ul>
+      <div class="service-card">
+        <span class="service-icon">📊</span>
+        <h3>Monitoring & Logging</h3>
+        <p>Comprehensive monitoring for performance and reliability.</p>
+        <ul>
+          <li>Performance metrics tracking</li>
+          <li>Log aggregation</li>
+          <li>Alert configuration</li>
+          <li>Real-time dashboards</li>
+        </ul>
+      </div>
+
+      <div class="service-card">
+        <span class="service-icon">🔒</span>
+        <h3>Security & Compliance</h3>
+        <p>Integrated security practices throughout the development lifecycle.</p>
+        <ul>
+          <li>Security scanning</li>
+          <li>Vulnerability assessment</li>
+          <li>Access control</li>
+          <li>Compliance automation</li>
+        </ul>
+      </div>
+
+      <div class="service-card">
+        <span class="service-icon">⚙️</span>
+        <h3>Container Orchestration</h3>
+        <p>Modern containerization and orchestration solutions.</p>
+        <ul>
+          <li>Docker containerization</li>
+          <li>Kubernetes deployment</li>
+          <li>Service mesh integration</li>
+          <li>Auto-scaling configuration</li>
+        </ul>
+      </div>
     </div>
   </div>
+
+  <footer>
+    <p>&copy; 2026 DevOps Project. Deployed with GitHub Pages.</p>
+  </footer>
 </body>
 </html>
